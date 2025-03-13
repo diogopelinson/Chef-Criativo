@@ -63,6 +63,8 @@ def listar_restaurantes():
 
 
 
+# Opção 3 - Ativar
+
 
 
 
