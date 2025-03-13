@@ -47,7 +47,7 @@ def voltar_ao_menu_principal():
 def opcao_invalida():
     print('Opção inválida!\n')
     voltar_ao_menu_principal()
-''' Exibe mensagem de opção inválida e retorna ao menu principal 
+''' Exibe mensagem de opção inválida e retorna ao menu principal !
     
     Outputs:
     - Retorna ao menu principal
