@@ -1,5 +1,9 @@
 import os
 
+restaurantes = [{'Nome':'Divino', 'Categoria':'Brasileira', 'Ativo':False}, 
+                {'Nome':'Planet Pizzas', 'Categoria':'Italiana','Ativo': True},
+                {'Nome':'Mak Burger', 'Categoria':'Hamburgueria', 'Ativo':False}]
+
 def exibir_nome_do_programa():
     print("""
 
@@ -19,19 +23,42 @@ def exibir_opções():
 
 # Bloco de codigo para finalizar o App
 def Finalizar_app(): 
-    os.system('cls')
-    print('Finalizando o app\n')
-    print()
+    exibir_subtitulo('Finalizar app')
+
+def voltar_ao_menu_principal():
+    input('\nDigite uma tecla para voltar ao menu principal')
+    main()
 
 def opcao_invalida():
     print('Opção inválida!\n')
-    input('Digite uma tecla para voltar ao menu principal')
-    main()
+    voltar_ao_menu_principal()
+
+def exibir_subtitulo(texto):
+     os.system('cls')
+     print(texto)
+     print()
 
 
-# Opção 1
+# Opção 1 - Cadasto
 def cadastrar_novo_restaurante():
-    pass
+   exibir_subtitulo('Cadastro de novos restaurantes')
+   nome_do_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
+   restaurantes.append(nome_do_restaurante)
+   print(f'O resaurante {nome_do_restaurante} foi cadastrado com êxito!')
+   voltar_ao_menu_principal()
+
+# Opção 2 - Lista
+def listar_restaurantes():
+    exibir_subtitulo('Listando restaurantes')
+    # Para cada restaurante na lista [restaurantes]: nome
+    for restaurante in restaurantes:
+        nome_restaurante = restaurante['Nome']
+        categoria = restaurante['Categoria']
+        ativo = restaurante["Ativo"]
+        print(f'- {nome_restaurante} | {categoria} | {ativo}')
+    voltar_ao_menu_principal()
+
+
 
 
 
@@ -45,7 +72,7 @@ def escolher_opção():
         if opcao_escolhida == 1:
             cadastrar_novo_restaurante()
         elif opcao_escolhida == 2:
-            print('Listar restaurantes')
+            listar_restaurantes()
         elif opcao_escolhida == 3:
             print('Ativar restaurante')
         elif opcao_escolhida == 4:
